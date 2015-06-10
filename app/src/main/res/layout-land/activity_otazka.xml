@@ -1,0 +1,163 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".OtazkaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/otazkaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:background="#FFE63B"
+            android:text="otazka"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/odpoved1TextView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:onClick="odpoved1Clicked" />
+        <TextView
+            android:id="@+id/odpoved2TextView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:onClick="odpoved2Clicked"
+            android:text="New Text" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/odpoved3TextView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:onClick="odpoved3Clicked"
+            android:text="New Text" />
+        <TextView
+            android:id="@+id/odpoved4TextView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:onClick="odpoved4Clicked"
+            android:text="New Text" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/odpoved5TextView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:onClick="odpoved5Clicked"
+            android:text="New Text" />
+
+        <TextView
+            android:id="@+id/odpoved6TextView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:onClick="odpoved6Clicked"
+            android:text="New Text" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/odpoved7TextView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:onClick="odpoved7Clicked"
+            android:text="New Text" />
+
+        <TextView
+            android:id="@+id/odpoved8TextView"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:onClick="odpoved8Clicked"
+            android:text="New Text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/predButton"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:onClick="predButtonActionPerformed"
+            android:text="&lt;&lt;" />
+
+        <Button
+            android:id="@+id/dalejButton"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:onClick="dalejButtonActionPerformed"
+            android:text=">>" />
+
+    </LinearLayout>
+</LinearLayout>
