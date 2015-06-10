@@ -232,6 +232,11 @@ public class StatistikaActivity extends ActionBarActivity implements PropertyCha
 
     public void zdielatButtonActionPerformed(View view) {
         Toast.makeText(this, "zdielame", Toast.LENGTH_SHORT).show();
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Úspešne som vyriešil "+statistika.uspesnych+" otázok zo "+statistika.vyriesenych+" v aplikácii testovač :).");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 
     public void zatvoritButtonActionPerformed(View view) {
