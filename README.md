@@ -1,8 +1,6 @@
 # testovac
 android app, biology test with 1500 questions with 8 answers for admission exams to Medicine College
 
-![example image](mainActivity.jpg "An exemplary image")
-
-![example image](otazkaActivity.jpg "An exemplary image")
-
-![example image](statistikaActivity.jpg "An exemplary image")
+<img src="mainActivity.jpg" alt="Drawing" width="350"/>
+<img src="otazkaActivity.jpg" alt="Drawing" width="350"/>
+<img src="statistikaActivity.jpg" alt="Drawing" width="350"/>
