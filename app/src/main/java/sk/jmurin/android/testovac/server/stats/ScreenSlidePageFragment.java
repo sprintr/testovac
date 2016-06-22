@@ -160,6 +160,11 @@ public class ScreenSlidePageFragment extends Fragment {
             }
 
             @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
             protected Void doInBackground(Void... params) {
                 int[] stats = serverStat.getTimestampStats().get(position).getStatistics();
                 final int hotovych = 0;
@@ -180,6 +185,7 @@ public class ScreenSlidePageFragment extends Fragment {
                     values.put(Provider.Statistika.STATS, stats[i]);
                     getActivity().getContentResolver().update(uri, values, NO_SELECTION, NO_SELECTION_ARGS);
                     dialog.setProgress(i);
+                    //publishProgress();
                 }
                 return null;
             }

@@ -41,20 +41,20 @@ public class ServerStatsDao {
 
             JSONArray serverStatsJSONarray = new JSONArray(json);
             List<ServerStat> serverStats = new ArrayList<ServerStat>();
-            for (int i = 0; i < serverStatsJSONarray.length(); i++) {
-                JSONObject objekt = (JSONObject) serverStatsJSONarray.get(i);
-                ServerStat ss = new ServerStat();
-                ss.setHostname(objekt.getString("hostname"));
-
-                JSONArray ja = objekt.getJSONArray("stats");
-                List<String> stats = new ArrayList<>();
-                for (int j = 0; j < ja.length(); j++) {
-                    //System.out.println(ja.get(j));
-                    stats.add((String) ja.get(j));
-                }
-                ss.setStats(stats);
-                serverStats.add(ss);
-            }
+//            for (int i = 0; i < serverStatsJSONarray.length(); i++) {
+//                JSONObject objekt = (JSONObject) serverStatsJSONarray.get(i);
+//                ServerStat ss = new ServerStat();
+//                ss.setHostname(objekt.getString("hostname"));
+//
+//                JSONArray ja = objekt.getJSONArray("stats");
+//                List<String> stats = new ArrayList<>();
+//                for (int j = 0; j < ja.length(); j++) {
+//                    //System.out.println(ja.get(j));
+//                    stats.add((String) ja.get(j));
+//                }
+//                ss.setStats(stats);
+//                serverStats.add(ss);
+//            }
 
             return serverStats;
         } catch (Exception e) {
