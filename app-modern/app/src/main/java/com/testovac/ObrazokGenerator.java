@@ -55,32 +55,32 @@ public class ObrazokGenerator {
 			return null;
 		}
 		System.out.println("velkost stvorceka: " + stvorcekSize);
-		int sirka = statImageView.getWidth() / stvorcekSize;
-		int vyska = statImageView.getHeight() / stvorcekSize;
-		Bitmap obrazok = Bitmap.createBitmap(sirka * stvorcekSize, vyska * stvorcekSize, Bitmap.Config.ARGB_8888);
-		boolean[][] matica = new boolean[vyska][sirka];
+		int match = statImageView.getWidth() / stvorcekSize;
+		int high = statImageView.getHeight() / stvorcekSize;
+		Bitmap obrazok = Bitmap.createBitmap(match * stvorcekSize, high * stvorcekSize, Bitmap.Config.ARGB_8888);
+		boolean[][] math = new boolean[high][match];
 //        int min = Integer.parseInt(String.valueOf(minEditText.getText()));
 //        int max = Integer.parseInt(String.valueOf(maxEditText.getText()));
 
 		for (int i = 1; i < 1501; i++) {
-			int x = (i - 1) % sirka;
-			int y = (i - 1) / sirka;
+			int x = (i - 1) % match;
+			int y = (i - 1) / match;
 			if (i >= min && i <= max) {
-				matica[y][x] = true;
+				math[y][x] = true;
 			}
 			if (stats[i] > 2) {
-				nakresliStvorcek(obrazok, x, y, Color.GREEN, matica[y][x], stvorcekSize);
+				nakresliStvorcek(obrazok, x, y, Color.GREEN, math[y][x], stvorcekSize);
 			} else {
 				if (stats[i] > 1) {
-					nakresliStvorcek(obrazok, x, y, Color.rgb(255, 153, 0), matica[y][x], stvorcekSize); //oranzova
+					nakresliStvorcek(obrazok, x, y, Color.rgb(255, 153, 0), math[y][x], stvorcekSize); //oranzova
 				} else {
 					if (stats[i] > 0) {
-						nakresliStvorcek(obrazok, x, y, Color.YELLOW, matica[y][x], stvorcekSize);
+						nakresliStvorcek(obrazok, x, y, Color.YELLOW, math[y][x], stvorcekSize);
 					} else {
 						if (stats[i] > -1) {
-							nakresliStvorcek(obrazok, x, y, Color.WHITE, matica[y][x], stvorcekSize);
+							nakresliStvorcek(obrazok, x, y, Color.WHITE, math[y][x], stvorcekSize);
 						} else {
-							nakresliStvorcek(obrazok, x, y, Color.RED, matica[y][x], stvorcekSize);
+							nakresliStvorcek(obrazok, x, y, Color.RED, math[y][x], stvorcekSize);
 						}
 					}
 				}
@@ -88,19 +88,19 @@ public class ObrazokGenerator {
 		}
 
 		// nakreslime zvoleny rozsah
-		for (int x = 0; x < matica[0].length; x++) {
-			for (int y = 0; y < matica.length; y++) {
-				if (matica[y][x]) {
-					if (niejeSused(y, x, -1, 0, matica)) {
+		for (int x = 0; x < math[0].length; x++) {
+			for (int y = 0; y < math.length; y++) {
+				if (math[y][x]) {
+					if (niejeSused(y, x, -1, 0, math)) {
 						nakresliCiaru(y, x, -1, 0, obrazok, Color.BLACK, 1, stvorcekSize);
 					}
-					if (niejeSused(y, x, 1, 0, matica)) {
+					if (niejeSused(y, x, 1, 0, math)) {
 						nakresliCiaru(y, x, 1, 0, obrazok, Color.BLACK, 1, stvorcekSize);
 					}
-					if (niejeSused(y, x, 0, 1, matica)) {
+					if (niejeSused(y, x, 0, 1, math)) {
 						nakresliCiaru(y, x, 0, 1, obrazok, Color.BLACK, 1, stvorcekSize);
 					}
-					if (niejeSused(y, x, 0, -1, matica)) {
+					if (niejeSused(y, x, 0, -1, math)) {
 						nakresliCiaru(y, x, 0, -1, obrazok, Color.BLACK, 1, stvorcekSize);
 					}
 				}
