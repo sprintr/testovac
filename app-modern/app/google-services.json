@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "403055958105",
+    "project_id": "testovac-e04c8",
+    "storage_bucket": "testovac-e04c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403055958105:android:98441bb51aeb1a7df33948",
+        "android_client_info": {
+          "package_name": "com.testovac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "403055958105-99l77k3crtvni32caitk6st50cdeidni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.testovac",
+            "certificate_hash": "dcb6204ee24cd1480b1c4917703ad3c4412c4401"
+          }
+        },
+        {
+          "client_id": "403055958105-74ci37o1jf0tbisu7390g2ikuse8v4bu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVlRIdpyFkBCmjwL1iI71PkWagUoCEf1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "403055958105-74ci37o1jf0tbisu7390g2ikuse8v4bu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
