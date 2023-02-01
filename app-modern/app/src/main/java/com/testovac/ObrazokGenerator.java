@@ -27,18 +27,18 @@ public class ObrazokGenerator {
 			int x = (i - 1) % sirka;
 			int y = (i - 1) / sirka;
 			if (stats[i] > 2) {
-				nakresliStvorcek(obrazok, x, y, Color.GREEN, false, stvorcekSize);
+				drawCircle(obrazok, x, y, Color.GREEN, false, stvorcekSize);
 			} else {
 				if (stats[i] > 1) {
-					nakresliStvorcek(obrazok, x, y, Color.rgb(255, 153, 0), false, stvorcekSize); //oranzova
+					drawCircle(obrazok, x, y, Color.rgb(255, 153, 0), false, stvorcekSize); //oranzova
 				} else {
 					if (stats[i] > 0) {
-						nakresliStvorcek(obrazok, x, y, Color.YELLOW, false, stvorcekSize);
+						drawCircle(obrazok, x, y, Color.YELLOW, false, stvorcekSize);
 					} else {
 						if (stats[i] > -1) {
-							nakresliStvorcek(obrazok, x, y, Color.WHITE, false, stvorcekSize);
+							drawCircle(obrazok, x, y, Color.WHITE, false, stvorcekSize);
 						} else {
-							nakresliStvorcek(obrazok, x, y, Color.RED, false, stvorcekSize);
+							drawCircle(obrazok, x, y, Color.RED, false, stvorcekSize);
 						}
 					}
 				}
@@ -57,7 +57,7 @@ public class ObrazokGenerator {
 		System.out.println("velkost stvorceka: " + stvorcekSize);
 		int match = statImageView.getWidth() / stvorcekSize;
 		int high = statImageView.getHeight() / stvorcekSize;
-		Bitmap obrazok = Bitmap.createBitmap(match * stvorcekSize, high * stvorcekSize, Bitmap.Config.ARGB_8888);
+		Bitmap picture = Bitmap.createBitmap(match * stvorcekSize, high * stvorcekSize, Bitmap.Config.ARGB_8888);
 		boolean[][] math = new boolean[high][match];
 //        int min = Integer.parseInt(String.valueOf(minEditText.getText()));
 //        int max = Integer.parseInt(String.valueOf(maxEditText.getText()));
@@ -65,22 +65,26 @@ public class ObrazokGenerator {
 		for (int i = 1; i < 1501; i++) {
 			int x = (i - 1) % match;
 			int y = (i - 1) / match;
-			if (i >= min && i <= max) {
-				math[y][x] = true;
-			}
-			if (stats[i] > 2) {
-				nakresliStvorcek(obrazok, x, y, Color.GREEN, math[y][x], stvorcekSize);
-			} else {
-				if (stats[i] > 1) {
-					nakresliStvorcek(obrazok, x, y, Color.rgb(255, 153, 0), math[y][x], stvorcekSize); //oranzova
+
+			if (y < math.length && x < math[y].length) {
+				if (i >= min && i <= max) {
+					math[y][x] = true;
+				}
+
+				if (stats[i] > 2) {
+					drawCircle(picture, x, y, Color.GREEN, math[y][x], stvorcekSize);
 				} else {
-					if (stats[i] > 0) {
-						nakresliStvorcek(obrazok, x, y, Color.YELLOW, math[y][x], stvorcekSize);
+					if (stats[i] > 1) {
+						drawCircle(picture, x, y, Color.rgb(255, 153, 0), math[y][x], stvorcekSize); //oranzova
 					} else {
-						if (stats[i] > -1) {
-							nakresliStvorcek(obrazok, x, y, Color.WHITE, math[y][x], stvorcekSize);
+						if (stats[i] > 0) {
+							drawCircle(picture, x, y, Color.YELLOW, math[y][x], stvorcekSize);
 						} else {
-							nakresliStvorcek(obrazok, x, y, Color.RED, math[y][x], stvorcekSize);
+							if (stats[i] > -1) {
+								drawCircle(picture, x, y, Color.WHITE, math[y][x], stvorcekSize);
+							} else {
+								drawCircle(picture, x, y, Color.RED, math[y][x], stvorcekSize);
+							}
 						}
 					}
 				}
@@ -92,16 +96,16 @@ public class ObrazokGenerator {
 			for (int y = 0; y < math.length; y++) {
 				if (math[y][x]) {
 					if (niejeSused(y, x, -1, 0, math)) {
-						nakresliCiaru(y, x, -1, 0, obrazok, Color.BLACK, 1, stvorcekSize);
+						nakresliCiaru(y, x, -1, 0, picture, Color.BLACK, 1, stvorcekSize);
 					}
 					if (niejeSused(y, x, 1, 0, math)) {
-						nakresliCiaru(y, x, 1, 0, obrazok, Color.BLACK, 1, stvorcekSize);
+						nakresliCiaru(y, x, 1, 0, picture, Color.BLACK, 1, stvorcekSize);
 					}
 					if (niejeSused(y, x, 0, 1, math)) {
-						nakresliCiaru(y, x, 0, 1, obrazok, Color.BLACK, 1, stvorcekSize);
+						nakresliCiaru(y, x, 0, 1, picture, Color.BLACK, 1, stvorcekSize);
 					}
 					if (niejeSused(y, x, 0, -1, math)) {
-						nakresliCiaru(y, x, 0, -1, obrazok, Color.BLACK, 1, stvorcekSize);
+						nakresliCiaru(y, x, 0, -1, picture, Color.BLACK, 1, stvorcekSize);
 					}
 				}
 			}
@@ -119,7 +123,7 @@ public class ObrazokGenerator {
 //        }
 		//grafikaLabel.setIcon(new ImageIcon(obrazok));
 		//statImageView.setImageBitmap(obrazok);
-		return obrazok;
+		return picture;
 	}
 
 	private static boolean niejeSused(int y, int x, int yp, int xp, boolean[][] matica) {
@@ -163,7 +167,7 @@ public class ObrazokGenerator {
 		}
 	}
 
-	private static void nakresliStvorcek(Bitmap obrazok, int x, int y, int farba, boolean jeVRozsahu, int stvorcekSize) {
+	private static void drawCircle(Bitmap obrazok, int x, int y, int farba, boolean jeVRozsahu, int stvorcekSize) {
 		// nakreslime stvorcek
 		for (int k = 0; k < stvorcekSize; k++) {
 			for (int l = 0; l < stvorcekSize; l++) {
