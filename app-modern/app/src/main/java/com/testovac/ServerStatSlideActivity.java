@@ -57,13 +57,15 @@ public class ServerStatSlideActivity extends AppCompatActivity {
 		} else {
 			serverStats = (List<ServerStat>) getIntent().getSerializableExtra("serverStats");
 		}
-		System.out.println("nacitane serverstats: " + serverStats.size());
-		NUM_PAGES = serverStats.size();
 
-		// Instantiate a ViewPager and a PagerAdapter.
-		mPager = (ViewPager) findViewById(R.id.pager);
-		mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-		mPager.setAdapter(mPagerAdapter);
+		if (serverStats != null) {
+			System.out.println("nacitane serverstats: " + serverStats.size());
+			NUM_PAGES = serverStats.size();
+
+			// Instantiate a ViewPager and a PagerAdapter.
+			mPager = (ViewPager) findViewById(R.id.pager);
+			mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+			mPager.setAdapter(mPagerAdapter);
 //        mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
 //            @Override
 //            public void onPageSelected(int position) {
@@ -74,14 +76,15 @@ public class ServerStatSlideActivity extends AppCompatActivity {
 //                invalidateOptionsMenu();
 //            }
 //        });
-
-
+		}
 	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putSerializable("serverStats", (Serializable) serverStats);
+		if (serverStats != null) {
+			outState.putSerializable("serverStats", (Serializable) serverStats);
+		}
 	}
 
 	@Override
@@ -137,7 +140,10 @@ public class ServerStatSlideActivity extends AppCompatActivity {
 
 		@Override
 		public Fragment getItem(int position) {
-			return ScreenSlidePageFragment.create(position, serverStats.get(position));
+			if (serverStats != null && position < serverStats.size()) {
+				return ScreenSlidePageFragment.create(position, serverStats.get(position));
+			}
+			return null;
 		}
 
 		@Override
