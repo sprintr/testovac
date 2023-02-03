@@ -199,12 +199,15 @@ public class MainActivity extends AppCompatActivity implements PropertyChangeLis
 					break;
 			}
 		}
-		if (neodoslaneStatistiky.size() > 0) {
-			odosliStatistikuButton.setEnabled(true);
-			odosliStatistikuButton.setText("Odošli štatistiku (" + neodoslaneStatistiky.size() + ")");
-		} else {
-			odosliStatistikuButton.setEnabled(false);
-			odosliStatistikuButton.setText("Odošli štatistiku (0)");
+
+		if (odosliStatistikuButton != null) {
+			if (neodoslaneStatistiky.size() > 0) {
+				odosliStatistikuButton.setEnabled(true);
+				odosliStatistikuButton.setText("Odošli štatistiku (" + neodoslaneStatistiky.size() + ")");
+			} else {
+				odosliStatistikuButton.setEnabled(false);
+				odosliStatistikuButton.setText("Odošli štatistiku (0)");
+			}
 		}
 	}
 
