@@ -243,7 +243,7 @@ public class StatistikaActivity extends AppCompatActivity implements PropertyCha
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		if ("sendStatsFailed".equals(evt.getPropertyName())) {
+		if ("sendStatsFailed".equals(evt.getPropertyName()) && !isFinishing()) {
 			System.out.println("ZIADEN INTERNET");
 			final TextView textView = new TextView(this);
 			textView.setText("Nie je pripojenie na internet!\nŠtatistiku z tohto testu odošlite neskôr z hlavného menu.");
