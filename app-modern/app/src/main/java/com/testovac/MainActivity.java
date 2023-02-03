@@ -393,15 +393,23 @@ public class MainActivity extends AppCompatActivity implements PropertyChangeLis
 		String minText = minEditText.getText().toString(),
 				maxText = maxEditText.getText().toString();
 
-		if (minText.length() != 0) {
-			min = Integer.parseInt(minText);
-		} else {
+		try {
+			if (minText.length() != 0) {
+				min = Integer.parseInt(minText);
+			} else {
+				min = 1;
+			}
+		} catch (NumberFormatException e) {
 			min = 1;
 		}
 
-		if (maxText.length() != 0) {
-			max = Integer.parseInt(maxText);
-		} else {
+		try {
+			if (maxText.length() != 0) {
+				max = Integer.parseInt(maxText);
+			} else {
+				max = 5;
+			}
+		} catch (NumberFormatException e) {
 			max = 5;
 		}
 
@@ -691,17 +699,26 @@ public class MainActivity extends AppCompatActivity implements PropertyChangeLis
 		int min = 1;
 		int max = 5;
 
-		String minText = minEditText.getText().toString();
-		if (minText.length() != 0) {
-			min = Integer.parseInt(minText);
-		} else {
+		String minText = minEditText.getText().toString(),
+				maxText = maxEditText.getText().toString();
+
+		try {
+			if (minText.length() != 0) {
+				min = Integer.parseInt(minText);
+			} else {
+				min = 1;
+			}
+		} catch (NumberFormatException e) {
 			min = 1;
 		}
 
-		String maxText = maxEditText.getText().toString();
-		if (maxText.length() != 0) {
-			max = Integer.parseInt(maxText);
-		} else {
+		try {
+			if (maxText.length() != 0) {
+				max = Integer.parseInt(maxText);
+			} else {
+				max = 5;
+			}
+		} catch (NumberFormatException e) {
 			max = 5;
 		}
 
