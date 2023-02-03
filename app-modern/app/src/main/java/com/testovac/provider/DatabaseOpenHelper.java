@@ -4,6 +4,7 @@ import static android.provider.BaseColumns._ID;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
@@ -18,9 +19,22 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		System.out.println("CREATING DATABASE");
-		db.execSQL(createBiologiaTable());
-		db.execSQL(createStatistikaTable());
-		db.execSQL(createMapaTable());
+
+		try {
+			db.execSQL(createBiologiaTable());
+		} catch (SQLiteException e) {
+		}
+
+		try {
+			db.execSQL(createStatistikaTable());
+		} catch (SQLiteException e) {
+		}
+
+		try {
+			db.execSQL(createMapaTable());
+		} catch (SQLiteException e) {
+		}
+
 		String[] inserty = getInsertData();
 		for (int i = 0; i < inserty.length; i++) {
 			db.execSQL(inserty[i]);
