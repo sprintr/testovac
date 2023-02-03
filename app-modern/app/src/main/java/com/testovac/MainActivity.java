@@ -750,9 +750,11 @@ public class MainActivity extends AppCompatActivity implements PropertyChangeLis
 		List<Otazka> vybraneOtazky = new ArrayList<>();
 		Otazka o;
 		for (int i = min; i <= max; i++) {
-			o = otazkyList.get(i);
-			if (vyhovujeCheckboxomUloha(o.id, stats)) {
-				vybraneOtazky.add(o);
+			if (otazkyList != null && i < otazkyList.size()) {
+				o = otazkyList.get(i);
+				if (vyhovujeCheckboxomUloha(o.id, stats)) {
+					vybraneOtazky.add(o);
+				}
 			}
 		}
 
